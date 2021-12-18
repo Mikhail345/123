@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>Military</title>
+    <style>
+        header { /*цвет текста, который в header*/
+            color: black;
+            grid-area: header;
+            background: green;
+            width: 1900px /*длина*/
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: aliceblue; /*цвет фона aliceblue */
+        }
+
+        .slider {
+            width: 950px; /*РАЗМЕРЫ СЛАЙДЕРА, ПОДОГНАТЬ ПОД САЙТ*/
+            height: 600px;
+            overflow: hidden; /*всё, что выходит за рамки размера указанного будет скрываться*/
+            border: 10px solid #fff /*рамка белого цвета*/
+        }
+
+        .middle {
+            position: absolute; /*absolute*/
+            top: 55%; /*50% изначально было*/
+            left: 26%; /*50% изначально было*/
+            transform: translate(-50%,-50%);
+        }
+
+        .navigation { /*кнопки для переключения картинок*/
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .bar { /*кнопки*/
+            height: 8px;
+            width: 30px;
+            margin: 6px;
+            cursor: pointer; /*при наведении палец*/
+            background-color: #4f7c53;
+            border-radius: 10px; /*прозрачность*/
+            transition: all .4s ease; /*плавная анимация*/
+        }
+
+            .bar:hover {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+
+        input[name="r"] { /*спрятали круглые кнопки в верхнем левом углу*/
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .slides {
+            width: 400%;
+            height: 100%;
+            display: flex;
+        }
+
+        .slide {
+            width: 25%;
+            transition: all .6s ease;
+        }
+
+            .slide img { /* картинка в размер окна встает*/
+                width: 100%;
+                height: 100%;
+            }
+
+        #r1:checked ~ .s1 { /*Блок, отвечающий за саму смену картинок про нажатии на кнопку*/
+            margin-left: 0;
+        }
+
+        #r2:checked ~ .s1 {
+            margin-left: -25%;
+        }
+
+        #r3:checked ~ .s1 {
+            margin-left: -50%;
+        }
+
+        #r4:checked ~ .s1 {
+            margin-left: -75%;
+        }
+
+        .block_1 { /*заголовок бтр -82а*/
+            position: absolute;
+            top: 850px;
+            left: 50%;
+        }
+
+        .pic_1 {
+            position: absolute;
+            top: 950px;
+            left: 1%;
+        }
+
+        .text_1 {
+            position: absolute;
+            top: 950px;
+            left: 750px;
+        }
+
+        .text_1_1 {
+            position: absolute;
+            top: 1090px;
+            left: 750px;
+        }
+
+        .text_1_1_1 {
+            position: absolute;
+            top: 1120px;
+            left: 770px;
+        }
+
+        .block_2 {
+            position: absolute;
+            top: 1600px;
+            left: 40%;
+        }
+
+        .pic_flag {
+            position: absolute;
+            top: 40px;
+            left: 45%;
+        }
+
+        .pic_2 {
+            position: absolute;
+            top: 1650px;
+            left: 1%;
+        }
+
+        .voor_1 {
+            position: absolute;
+            top: 1220px;
+            left: 750px;
+        }
+
+        .voor_1A {
+            position: absolute;
+            top: 1250px;
+            left: 770px;
+        }
+
+        .text_2 {
+            position: absolute;
+            top: 1650px;
+            left: 700px;
+        }
+
+        .ttx_taif {
+            position: absolute;
+            top: 1730px;
+            left: 700px;
+        }
+
+        .ttx_taif_1 {
+            position: absolute;
+            top: 1760px;
+            left: 720px;
+        }
+
+        .forma {
+            position: absolute;
+            top: 2100px;
+            /*background-color:#0094ff;*/
+            /*left: 720px;*/
+            /*background-color:#00ffff;*/
+        }
+
+        .fon_forma {
+            position: absolute;
+            top: 2100px;
+            /*left: 720px;*/
+        }
+
+        .vajno {
+            color: #ff0000;
+        }
+        #toTop {
+            width: 100px;
+            border: 1px solid #ccc;
+            background: #78d36a; 
+            text-align: center;
+            padding: 5px;
+            position: fixed;
+            bottom: 20px; /* отступ кнопки от нижнего края страницы*/
+            right: 15px;
+            cursor: pointer;
+            display: none;
+            color: black;
+            font-family: verdana;
+            font-size: 11px;
+        }
+        .inst {
+            position: absolute;
+            top: 2120px;
+            left: 370px;
+        }
+        .logotip {
+            position: absolute;
+            top: 2110px;
+            left: 300px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $(window).scroll(function () {
+
+                if ($(this).scrollTop() != 0) {
+
+                    $('#toTop').fadeIn();
+
+                } else {
+
+                    $('#toTop').fadeOut();
+
+                }
+
+            });
+
+            $('#toTop').click(function () {
+
+                $('body,html').animate({ scrollTop: 0 }, 800);
+
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+    
+    <div>
+        <header>
+            <h1 align="center"> <i> Military </i>  </h1>
+            <img src="D:\УЧЕБА\полезное ННГУ\2 курс\без фона истр.png" width="300" height="150" />
+            <img src="D:\УЧЕБА\полезное ННГУ\2 курс\конечная.png" width="300" height="150" align="right" />
+            <img class="pic_flag" src="D:\УЧЕБА\полезное ННГУ\2 курс\флаг России.gif" width="200" height="150" />
+        </header>
+    </div>
+
+    <div class="slider middle">
+        <div class="slides">
+            <input type="radio" name="r" id="r1" checked>
+            <input type="radio" name="r" id="r2">
+            <input type="radio" name="r" id="r3">
+            <input type="radio" name="r" id="r4">
+
+            <div class="slide s1"><img src="D:\тестовые\image_for_project\1 pic.jpg" alt=""></div>
+            <div class="slide"><img src="D:\тестовые\image_for_project\2 pic.jpg" alt=""></div>
+            <div class="slide"><img src="D:\тестовые\image_for_project\3 pic.jpg" alt=""></div>
+            <div class="slide"><img src="D:\тестовые\image_for_project\4 pic.jpg" alt=""></div>
+
+
+        </div>
+
+        <div class="navigation">
+            <label for="r1" class="bar"></label>
+            <label for="r2" class="bar"></label>
+            <label for="r3" class="bar"></label>
+            <label for="r4" class="bar"></label>
+
+
+        </div>
+
+    </div>
+    <h2 align="right" style="text-indent:980px"><strong>Данный сайт посвящен новейшим видам военной техники в ВС РФ, которые являются подвижными объектами коллективной защиты личного состава от ОМП</strong></h2>
+    <h1 class="block_1"> БТР-82А </h1>
+    <img class="pic_1" src="D:\УЧЕБА\полезное ННГУ\ВУЦ\Учеба ВУЦ\ОВП\машины\бтр-82а.jpg" width="700" height="550" />
+    <p class="text_1">
+        Бронетранспортёр предназначен для транспортировки подразделений, их огневой поддержки в бою, уничтожения живой силы, противотанковых средств и легкобронированной техники противника.
+        Опытные образцы БТР-82А были собраны в декабре 2009 года на Арзамасском машиностроительном заводе (АМЗ). Испытания машин прошли зимой 2010 года, после чего они были приняты на вооружение.
+        В 2011 году на БТР-82А были перевооружены некоторые части Южного военного округа. На машине установлен 8-цилиндровый 4-тактный V-образный дизельный двигатель КАМАЗ-740.14‑300 мощностью 300 л. с.
+        Повышена живучесть, проходимость, надёжность и ресурс эксплуатации по сравнению с БТР-80. Имеется противоосколочная защита в виде специальных накладок на внутренней поверхности корпуса и кондиционер.
+        Бронетранспортёр получил цифровые радиостанции Акведук с шифрованием сигнала и комбинированные приборы наблюдения. Повышена противоминная стойкость.
+    </p>
+    <h3 class="text_1_1"> ТТХ БТР-82А: </h3>
+    <ul class="text_1_1_1">
+        <li> Экипаж: 3 + 7 чел </li>
+        <li> Масса: 15т </li>
+        <li> Мощность двигателя: 300 л.с </li>
+        <li> Макс. Скорость по шоссе: 100 км/ч </li>
+        <li> Запас хода по топливу по шоссе: 700 км </li>
+
+    </ul>
+    <h3 class="voor_1">  ВООРУЖЕНИЕ: </h3>
+    <ul class="voor_1A">
+        <li>30-мм пушка 2А72 (Боезапас - 300 выстр)</li>
+        <li> Дальность стрельбы - 3600 м</li>
+        <li> Пулемет - 1 х 7.62-мм спаренный с пушкой пулемет ПКТМ, боезапас - 2000 патронов </li>
+        <li> Мортиры дымовой завесы - 6 х 81-мм мортиры запуска дымовых гранат 3Д6 / 3Д6М  </li>
+
+    </ul>
+    <h1 class="block_2"> КамАЗ-63968 или «Тайфун-К»  </h1>
+    <img class="pic_2" src="D:\УЧЕБА\полезное ННГУ\ВУЦ\Учеба ВУЦ\ОВП\машины\тайфун-к 3 фотка.jpg" width="650" height="400" />
+    <p class="text_2">
+
+        КамАЗ-63968 или «Тайфун-К» — универсальный бронеавтомобиль повышенной защищённости на оригинальном шасси.
+        Бронемашина была создана после утверждения «Концепции развития военной автомобильной техники Вооруженных Сил Российской Федерации на период до 2020 года», в которой намечено производство автотехники на основе унифицированных семейств.
+        Тайфун К-63968 является частью нового этапа в разработке отечественной автотехники для вооружённых сил, так как последний раз автомобильная платформа была принята в 1961 году.
+
+    </p>
+    <h3 class="ttx_taif"> ТТХ «Тайфун-К»: </h3>
+    <ul class="ttx_taif_1">
+        <li> Экипаж: 3 + 14 </li>
+        <li> Колесная формула: 6 × 6 </li>
+        <li> Длина: 9 м </li>
+        <li> Масса: 24 т </li>
+        <li> Макс. скорость: 110 км/ч </li>
+        <li> Мощность двигателя: 450 л.с </li>
+
+
+    </ul>
+    <img class="fon_forma" src="https://retinoids.ru/uploads/other-file-1600869958.jpg" width="1900" height="200" />
+    <form class="forma" action="mailto:smallmixa02@mail.ru" enctype="text/plain" method='post' autocomplete="off">
+        <fieldset>
+            <legend>Связаться со мной</legend>
+            <br />
+            <p><label for="name"><em class="vajno">(*)</em>Имя: </label><input type="text" id="name" required></p>
+            <br />
+            <p><label for="text"><em class="vajno">(*)</em> Ваша оценка: </label><input type="text" id="text" required></p>
+            <br />
+            <p><label for="text"> Комментарий: </label><input type="text" id="text"></p>
+            <br />
+        </fieldset>
+        <p><input type="submit" value="Отправить" /></p>
+
+    </form>
+    <div id="toTop">Наверх</div> 
+    <a class="inst" href="https://www.instagram.com/aga_mi_19/" target="_blank"> Instagram </a> 
+    <img class="logotip" src="D:\УЧЕБА\полезное ННГУ\2 курс\логотип без фона.png" width="80" height="50" />
+
+</body>
+</html>
